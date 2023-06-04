@@ -1,11 +1,41 @@
 package org.example;
 
-import org.example.produtos.Feira;
-import org.example.produtos.Limpeza;
-import org.example.produtos.Produto;
+import org.example.produtos.*;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+
+        //var Produto = new Produto();
+
+         AlimentosBasicos alimentosBasicos = new AlimentosBasicos();
+
+
+
+        List<Bebidas> bebidas = new ArrayList<>();
+        Bebidas bebida = new Bebidas("nome", "descrição", 5.00);
+        bebidas.add(bebida);
+        bebidas.remove(bebida);
+
+        LinkedList<Limpeza> limpeza = new LinkedList<>();
+        var Limpeza = new Limpeza("", "", 20.00);
+        limpeza.add(Limpeza);
+        limpeza.remove(limpeza);
+
+        ArrayList   list = new ArrayList ();
+        list.add(limpeza);
+
+
+
+
+
+
+
+
+
 
 //        Object objetos = new Feira("", "", 0.0);
 //        Object objeto = "Uma String";

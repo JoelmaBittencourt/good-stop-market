@@ -41,9 +41,8 @@ public abstract class Produto {
     }
 
     public void verificaPreco() {
-        boolean resultado = Boolean.parseBoolean("true");
         if (this.preco <= 0.0) {
-            System.out.println(resultado);
+            System.out.println("Produto com preço invalido!!");
         }
     }
 }

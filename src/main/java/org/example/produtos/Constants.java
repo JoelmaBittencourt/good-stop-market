@@ -1,4 +1,4 @@
-package org.example.carrinho;
+package org.example.produtos;
 
 public class Constants {
 

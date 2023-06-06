@@ -2,54 +2,48 @@ package org.example.produtos;
 
 import org.example.produtos.exception.NotFoundException;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 public abstract class Produto {
     private String nome;
     private String descricao;
     private Double preco;
-    private List<String> caracteristicas;
-    private List<String> comentarios;
+    private List<Comentarios> comentarios;
 
-    public Produto(final String nome, final String descricao, final Double preco) {
-        if (nome == null) {
-            throw new NotFoundException("nome não pode ser nulo");
-        }
-        this.nome = nome;
-        this.descricao = descricao;
-        this.preco = preco;
-        this.caracteristicas = new ArrayList<>();
-        this.comentarios = new LinkedList<>();
-    }
 
     public String getNome() {
         return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getDescricao() {
         return descricao;
     }
 
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
     public Double getPreco() {
         return preco;
     }
 
-    public List<String> getCaracteristicas() {
-        return caracteristicas;
+    public void setPreco(Double preco) {
+        this.preco = preco;
     }
 
-    public List<String> getComentarios() {
+    public List<Comentarios> getComentarios() {
+        if(comentarios == null){
+            throw new IllegalArgumentException("comentarios não podem ser nulos");
+        }
         return comentarios;
     }
 
-    public void addCaracteristica(String caracteristica) {
-        caracteristicas.add(caracteristica);
-    }
-
-    public void addComentario(String comentario) {
-        comentarios.add(comentario);
+    public void setComentarios(List<Comentarios> comentarios) {
+        this.comentarios = comentarios;
     }
 
 
@@ -59,14 +53,25 @@ public abstract class Produto {
                 "nome='" + nome + '\'' +
                 ", descricao='" + descricao + '\'' +
                 ", preco=" + preco +
-                ", caracteristicas=" + caracteristicas +
                 ", comentarios=" + comentarios +
                 '}';
     }
 
     public void verificaPreco() {
-        if (this.preco <= 0.0) {
-            System.out.println("Produto com preço inválido!!");
+        if (nome == null) {
+            if (this.preco <= 0.0) {
+                throw new NotFoundException("preço não pode ser nulo");
+            }
         }
     }
+
+    public void validaPreco() {
+        if (this.preco == 9.99) {
+            Math.round(this.preco);
+            System.out.println("valor arredondado de 9.99 para 10.00!!");
+        }
+
+
+    }
+
 }
